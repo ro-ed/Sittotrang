@@ -1,0 +1,116 @@
+
+
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 3px solid rgba(254,171,142,1);
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+   
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo{
+    // margin-right: 50px;
+    margin-left: 1%;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+
+}
+#toggler, 
+    .navbar label {
+        display: none;
+    }
+
+
+@media screen and (max-width: 600px){
+    .menu-list {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .list {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .navbar label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .opened ~ .menu-list {
+        max-height: 100%;
+    }
+    .menu {
+        display: none;
+    }
+      
+}
+
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    margin-right: 1%;
+  }
+  .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+  .logo-title {
+    font-family: 'Roboto', sans-serif;
+  }
