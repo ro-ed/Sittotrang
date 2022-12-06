@@ -1,16 +1,29 @@
-<div>
+<!-- <div>
 <h1>Welcome,</h1>
 <h3>Sign in to continue!</h3>
+ <app-input label="Email" name="email" type="email" (childOutput)="onEmailEntry()"></app-input>
+  <app-input label="Password" type="password" name="password" (childOutput)="onPasswordEntry()"></app-input>  -->
 
-<!-- <form>
-  <app-input label="Email" name="email" type="email" (childOutput)="onEmailEntry()"></app-input>
-  <app-input label="Password" type="password" name="password" (childOutput)="onPasswordEntry()"></app-input> -->
+  <!-- <form>
+   -->
   <!-- <a routerLink="#" class="forgot-password-link">Forgot Password?</a> -->
 
   <!-- <app-button label="Login" (click)="onLogin($event)"></app-button>
   < <app-icon-button icon="logo-facebook" label="Connect with Facebook"></app-icon-button> -->
 <!-- </form> --> 
 
-<p class="footer-text">I'm a new user, <a routerLink="/register">Sign Up</a></p>
+<!-- <p class="footer-text">I'm a new user, <a routerLink="/register">Sign Up</a></p>
 <p>Navigate to home, <a routerLink="/home">Home</a></p>
+</div> --> 
+
+
+<div class="login-card">
+  <h2>Login</h2>
+  <h3>Enter your credentials</h3>
+  <form class="login-form">
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <a href="#">Forgot your password?</a>
+    <button>LOGIN</button>
+  </form>
 </div>
