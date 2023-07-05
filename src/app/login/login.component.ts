@@ -24,19 +24,18 @@ export class LoginComponent {
   rememberCredentials: boolean;
   @Output() childOutput : EventEmitter<string> = new EventEmitter();
   
-
-  // @Output() username: string;
-  // @Output() password: string;
   errorMsg: any;
   successIcon: any;
   failureIcon: any;
 
+  usernameIcon: any;
+  passwordIcon: any;
   constructor(private router: Router, private domSanitizer: DomSanitizer) {
     
     
   }
 
-  NgOnInit(){
+  ngOnInit(){
     let id = (id: any) => document.getElementById(id);
 
     let classes = (classes: any) => document.getElementsByClassName(classes);
@@ -70,13 +69,18 @@ export class LoginComponent {
      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
    </svg>`
     } as any;
-
+    console.log(iconArray)
 
     Object.keys(iconArray).forEach(key => {
-      if (key === this.icon) {
+      if (key === "user") {
           console.log("Found.", key);
           console.log(iconArray[key])
-          this.svg = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+          this.usernameIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+      }
+      else if(key === "password"){
+        console.log("Found.", key);
+        console.log(iconArray[key])
+        this.passwordIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
       }
     });
   }
@@ -96,16 +100,17 @@ export class LoginComponent {
   login(e: any){
     e.preventDefault();
     let username = document.getElementById("username") as HTMLInputElement;
-    let userNameValue = this.username
-    console.log("USRNAME", username.value)
+    //console.log("USRNAME", username.value)
     let password = document.getElementById("password") as HTMLInputElement;
-    let passwordValue = this.password
-    console.log(passwordValue)
-    if(userNameValue === "robin@goalachiever.se" && passwordValue === "123"){
+    //console.log("PASS", password.value)
+    if(username.value === "robin@goalachiever.se" && password.value === "123"){
        this.router.navigate(["home"]);
     }
     else {
-      
+    let usernameDesign = document.getElementById("username") as HTMLElement;
+      usernameDesign.style.border = "1px solid red"
+      let passwordDesign = document.getElementById("password") as HTMLElement;
+      passwordDesign.style.border = "1px solid red"
       this.usernameEmpty = true;
     }
    
