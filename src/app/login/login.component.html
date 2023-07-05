@@ -18,12 +18,35 @@
 
 
 <div class="login-card">
+  <h4>Achievo</h4>
   <h2>Login</h2>
   <h3>Enter your credentials</h3>
-  <form class="login-form">
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+  <form class="login-form" autocomplete="off">
+    <!-- <app-input type="text" label="Username" name="username" icon="user" id="username" [(ngModel)]="username"></app-input>
+    <app-input type="password" label="Password" name="password" icon="password" id="password" [(ngModel)]="password"></app-input> -->
+    <div>
+      <div class="icon" [innerHTML]="svg"></div>
+      <div class="form-field">
+        <label [ngClass]="usernameIsFocused ? 'label-focused' : ''">Username</label>
+        <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [name]="name"  name="input" id="username">
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+      <div class="icon" [innerHTML]="svg"></div>
+      <div class="form-field">
+        <label [ngClass]="passwordIsFocused ? 'label-focused' : ''">Password</label>
+        <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [name]="name" name="input" id="password">
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+    </div>
+    <div class="rememberCredentials">
+      <input type="checkbox" name="remeberCredentials" [(ngModel)]="rememberCredentials" class="rememberCredentialsCheckbox">
+      <label for="remeberCredentials">Remember me</label>
+    </div>
     <a href="#">Forgot your password?</a>
-    <button>LOGIN</button>
+    <button (click)="login($event)">LOGIN</button> 
   </form>
 </div>

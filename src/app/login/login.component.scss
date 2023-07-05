@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-button {
-    height: 2em;
-}
+// button {
+//     height: 2em;
+// }
 
 html, body {
     height: 100%;
@@ -15,6 +15,7 @@ html, body {
 a, button {
     cursor: pointer;
 }
+
 
 @keyframes pan {
     100% { background-position: 15% 50%;}
@@ -80,6 +81,7 @@ body {
     height: 4em;
     padding: 0 16px;
     border-radius: 8px;
+    
 }
 
 .login-form > input {
@@ -93,6 +95,19 @@ body {
     background: #FBAE3C;
     color: black;
     font-weight: 600;
+
+   
+}
+
+.login-form > button:hover {
+    background: black;
+    color: #FBAE3C;
+    transition: 0.2s ease-in-out;
+}
+
+.login-form > a:hover {
+    color: #FBAE3C;
+    transition: 0.2s ease-in-out;
 }
 
 // h1 {
@@ -138,3 +153,83 @@ body {
 //         color: #fa578e;
 //     }
 // }
+
+
+.form-field{
+    display: flex;
+    position: relative;
+    margin-bottom: 5%;
+    height: 50px;
+    width: 100%;
+    // border: 1px solid black;
+
+    label{
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        padding: 0 0.25rem;
+        color: #001220;
+        font-size: 1rem;
+        transition: .3s;
+        
+    }
+
+    input {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        height: 100%;
+        width: 100%;
+        font-size: 17px;
+        //font-weight: 600;
+        border: 2px solid #e7ebee;
+        border-radius: 10px;
+        outline: none;
+        padding: 1rem;
+        background: none;
+        z-index: 1;
+        color: #171c25;
+    }
+
+    input:focus {
+        border-color: #FBAE3C;
+        width: 100%;
+        
+    }
+
+    .label-focused {
+        top: -.4rem;
+        left: 0.8rem;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #fff;
+        z-index: 10;
+        
+    }
+
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    margin-right: 3%;
+}
+
+
+.success-icon,
+.failure-icon {
+  right: 0;
+  opacity: 0;
+}
+
+.remeberCredentials {
+    display: flex;
+   
+    
+}
+
+.rememberCredentialsCheckbox{
+    accent-color: #FBAE3C;
+    width: 100%;
+    height: 60%;
+}

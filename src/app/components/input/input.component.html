@@ -1,4 +1,11 @@
-<div class="form-field">
+<div style="display: flex;">
+  <div class="icon" [innerHTML]="svg"></div>
+  <div class="form-field">
     <label [ngClass]="focused ? 'label-focused' : ''">{{label}}</label>
-    <input [type]="type" (focus)="focused = true" (blur)="onBlur($event)" [name]="name" [value]="">
+    <input [type]="type" (focus)="focused = true" (blur)="onBlur($event)" [name]="name" name="input" [(ngModel)]="input" (change)="inputHasChanged($event)">
+    <i class="fas fa-exclamation-circle failure-icon"></i>
+    <i class="far fa-check-circle success-icon"></i>
+    <div class="error"></div>
   </div>
+</div>
+   

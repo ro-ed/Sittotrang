@@ -1,7 +1,7 @@
 .form-field{
     display: flex;
     position: relative;
-    margin-bottom: 3rem;
+    // margin-bottom: 3rem;
     height: 50px;
     width: 100%;
     // border: 1px solid black;
@@ -11,20 +11,20 @@
         left: 1rem;
         top: 1rem;
         padding: 0 0.25rem;
-        color: #939fab;
+        color: #001220;
         font-size: 1rem;
         transition: .3s;
         
     }
 
     input {
-        position: absolute;
-        top: 0;
-        left: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
         height: 100%;
         width: 100%;
         font-size: 17px;
-        font-weight: 600;
+        //font-weight: 600;
         border: 2px solid #e7ebee;
         border-radius: 10px;
         outline: none;
@@ -35,8 +35,8 @@
     }
 
     input:focus {
-        border-color: #fa578e;
-        width: 91%;
+        border-color: #FBAE3C;
+        width: 100%;
         
     }
 
@@ -49,4 +49,18 @@
         z-index: 10;
         
     }
+
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    margin-right: 3%;
+}
+
+
+.success-icon,
+.failure-icon {
+  right: 0;
+  opacity: 0;
 }
