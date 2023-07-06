@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
-    border-bottom: 3px solid rgba(254,171,142,1);
+    //border-bottom: 3px solid rgba(254,171,142,1);
     background: #fff;
     position: fixed;
     width: 100%;
@@ -40,6 +40,7 @@
         width: 100%;
         max-height: 0;
         overflow: hidden;
+        
     }
     
     .list {
@@ -54,6 +55,8 @@
     }
     .opened ~ .menu-list {
         max-height: 100%;
+        
+        
     }
     .menu {
         display: none;
