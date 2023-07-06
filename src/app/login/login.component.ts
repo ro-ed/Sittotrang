@@ -29,11 +29,14 @@ password: string;
   @Output() childOutput : EventEmitter<string> = new EventEmitter();
   
   errorMsg: any;
+
   successIcon: any;
   failureIcon: any;
-
   usernameIcon: any;
   passwordIcon: any;
+
+  isCorrectFormat: boolean;
+  
   constructor(private router: Router, private domSanitizer: DomSanitizer) {
     
     
@@ -65,6 +68,8 @@ password: string;
       this.validator(password, 2, "Password cannot be blank");
     });
 
+
+    //ICONS FROM BOOTSTRAP
     var iconArray = {
       user: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -73,20 +78,35 @@ password: string;
       
      password: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-   </svg>`
+   </svg>`,
+
+      failure: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+    </svg>`,
+
+
+      success: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </svg>`
+
+   
     } as any;
     console.log(iconArray)
 
     Object.keys(iconArray).forEach(key => {
-      if (key === "user") {
-          console.log("Found.", key);
-          console.log(iconArray[key])
+      switch(key) {
+        case "user":
           this.usernameIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
-      }
-      else if(key === "password"){
-        console.log("Found.", key);
-        console.log(iconArray[key])
-        this.passwordIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+          break;
+        case "password":
+          this.passwordIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+          break;
+        case "failure":
+          this.failureIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+          break;
+        case "success":
+          this.successIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
+          break;
       }
     });
 
@@ -94,11 +114,13 @@ password: string;
       //let username = document.getElementById("username") as HTMLInputElement;
       this.username = localStorage.getItem("username") as string;
       console.log("USERNAME SET", this.username)
-      this.usernameIsFocused = false;
+      this.usernameIsFocused = true;
+      this.validateEmail(this.username)
+      
       //let password = document.getElementById("password") as HTMLInputElement;
       this.password = localStorage.getItem("password") as string;
       console.log("PASSWORD SET", this.password)
-      this.passwordIsFocused = false;
+      this.passwordIsFocused = true;
     }
 
 
@@ -112,14 +134,35 @@ if(localStorage.getItem("rememberCredentials") === "true"){
     let inputBox = document.getElementById("rememberCredentialsId") as HTMLInputElement
     if(inputBox.checked === true){
       localStorage.setItem("rememberCredentials", "true")
+      localStorage.setItem("username", this.username)
+      localStorage.setItem("password", this.password)
       this.rememberCredentials = true;
     }
     else{
       localStorage.setItem("rememberCredentials", "false")
+      localStorage.setItem("username", "")
+      localStorage.setItem("password", "")
       this.rememberCredentials = false;
 
     }
   }
+
+   validateEmail(email: string){
+         if(email.match(
+         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+         )){
+          console.log("TRUE")
+          this.isCorrectFormat = true;
+          let usernameInput = document.getElementById("username") as HTMLInputElement;
+          usernameInput.style.borderColor = "green";
+         }
+         else{
+          console.log("FALSE")
+          this.isCorrectFormat = false;
+          let usernameInput = document.getElementById("username") as HTMLInputElement;
+          usernameInput.style.borderColor = "red";
+         }
+   }
  
   onEmailEntry(){
     

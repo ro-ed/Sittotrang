@@ -186,6 +186,7 @@ body {
         border-radius: 10px;
         outline: none;
         padding: 1rem;
+        padding-right: 2.3rem;
         background: none;
         z-index: 1;
         color: #171c25;
@@ -245,4 +246,10 @@ body {
 
 .password-input-container{
     display: flex;
+}
+
+.icon-correct-format {
+    position: absolute;
+    top: 1rem;
+    left: 12.3rem;
 }

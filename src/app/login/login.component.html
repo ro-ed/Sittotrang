@@ -29,10 +29,9 @@
         <div class="icon" [innerHTML]="usernameIcon"></div>
         <div class="form-field">
           <label [ngClass]="usernameIsFocused ? 'label-focused' : ''">Username</label>
-          <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [(ngModel)]="username" name="inputUsername" id="username">
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-          <div class="error"></div>
+          <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [(ngModel)]="username" name="inputUsername" id="username" (ngModelChange)="validateEmail(username)">
+          <div class="icon-correct-format" *ngIf="!isCorrectFormat" [innerHTML]="failureIcon"></div>
+          <div class="icon-correct-format" *ngIf="isCorrectFormat" [innerHTML]="successIcon"></div>
         </div>
       </div>
       <div class="password-input-container">
@@ -40,9 +39,9 @@
         <div class="form-field">
           <label [ngClass]="passwordIsFocused ? 'label-focused' : ''">Password</label>
           <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [(ngModel)]="password" name="inputPassword" id="password">
-          <i class="fas fa-exclamation-circle failure-icon"></i>
-          <i class="far fa-check-circle success-icon"></i>
-          <div class="error"></div>
+          <!-- <div class="icon" *ngIf="isWrongFormat" ></div>
+          <div class="icon" *ngIf="isCorrectFormat"></div> -->
+          
         </div>
       </div>
     </div>
