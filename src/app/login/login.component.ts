@@ -12,8 +12,12 @@ export class LoginComponent {
  
   @Input() label: string;
   @Input() type = 'text'; //set default type to be text
-  @Input() username: string;
-  @Input() password: string;
+  //@Input() username: string;
+  //@Input() password: string;
+
+username: string;
+password: string;
+
   @Input() name = 'name'; //default set to name.
   @Input() icon: string;
   svg: any;
@@ -49,6 +53,8 @@ export class LoginComponent {
       this.successIcon = classes("success-icon"),
       this.failureIcon = classes("failure-icon");
     
+
+
     // Adding the submit event Listener
     
     form?.addEventListener("submit", (e) => {
@@ -83,6 +89,36 @@ export class LoginComponent {
         this.passwordIcon = this.domSanitizer.bypassSecurityTrustHtml(iconArray[key]);
       }
     });
+
+    if(localStorage.getItem("username") && localStorage.getItem("password") !== ""){
+      //let username = document.getElementById("username") as HTMLInputElement;
+      this.username = localStorage.getItem("username") as string;
+      console.log("USERNAME SET", this.username)
+      this.usernameIsFocused = false;
+      //let password = document.getElementById("password") as HTMLInputElement;
+      this.password = localStorage.getItem("password") as string;
+      console.log("PASSWORD SET", this.password)
+      this.passwordIsFocused = false;
+    }
+
+
+    
+if(localStorage.getItem("rememberCredentials") === "true"){
+  this.rememberCredentials = true;
+}
+  }
+
+  hasCheckedRemeberCredentials(){
+    let inputBox = document.getElementById("rememberCredentialsId") as HTMLInputElement
+    if(inputBox.checked === true){
+      localStorage.setItem("rememberCredentials", "true")
+      this.rememberCredentials = true;
+    }
+    else{
+      localStorage.setItem("rememberCredentials", "false")
+      this.rememberCredentials = false;
+
+    }
   }
  
   onEmailEntry(){
@@ -104,6 +140,10 @@ export class LoginComponent {
     let password = document.getElementById("password") as HTMLInputElement;
     //console.log("PASS", password.value)
     if(username.value === "robin@goalachiever.se" && password.value === "123"){
+      if(this.rememberCredentials){
+        localStorage.setItem("username", username.value)
+        localStorage.setItem("password", password.value)
+      }
        this.router.navigate(["home"]);
     }
     else {

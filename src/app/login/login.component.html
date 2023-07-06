@@ -29,7 +29,7 @@
         <div class="icon" [innerHTML]="usernameIcon"></div>
         <div class="form-field">
           <label [ngClass]="usernameIsFocused ? 'label-focused' : ''">Username</label>
-          <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [name]="name" name="input" id="username">
+          <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [(ngModel)]="username" name="inputUsername" id="username">
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
           <div class="error"></div>
@@ -39,7 +39,7 @@
         <div class="icon" [innerHTML]="passwordIcon"></div>
         <div class="form-field">
           <label [ngClass]="passwordIsFocused ? 'label-focused' : ''">Password</label>
-          <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [name]="name" name="input" id="password">
+          <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [(ngModel)]="password" name="inputPassword" id="password">
           <i class="fas fa-exclamation-circle failure-icon"></i>
           <i class="far fa-check-circle success-icon"></i>
           <div class="error"></div>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="rememberCredentials">
-      <input type="checkbox" name="remeberCredentials" [(ngModel)]="rememberCredentials" class="rememberCredentialsCheckbox">
+      <input type="checkbox" name="remeberCredentials" [(ngModel)]="rememberCredentials" class="rememberCredentialsCheckbox" (click)="hasCheckedRemeberCredentials()" id="rememberCredentialsId">
       <label for="remeberCredentials">Remember me</label>
     </div>
     <a href="#">Forgot your password?</a>
