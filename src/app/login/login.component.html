@@ -33,7 +33,9 @@
             <div class="icon-correct-format" *ngIf="!isCorrectFormat" [innerHTML]="failureIcon"></div>
             <div class="icon-correct-format" *ngIf="isCorrectFormat" [innerHTML]="successIcon"></div>
           </div>
+          
         </div>
+        <div class="username-wrong-format" *ngIf="!isCorrectFormat">Username format is incorrect.</div>
         <div class="password-input-container">
           <div class="icon" [innerHTML]="passwordIcon"></div>
           <div class="form-field">

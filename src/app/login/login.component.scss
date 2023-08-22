@@ -264,7 +264,14 @@ a, button {
 }
 
 .icon-correct-format {
-    position: absolute;
-    top: 1rem;
-    left: 12.3rem;
+    display: grid;
+    place-items: center;
+    margin-left: 0.5rem;
+}
+
+.username-wrong-format {
+    color: red;
+    text-align: start;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
 }

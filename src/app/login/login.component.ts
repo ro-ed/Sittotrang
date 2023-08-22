@@ -189,12 +189,14 @@ if(localStorage.getItem("rememberCredentials") === "true"){
       }
        this.router.navigate(["home"]);
     }
-    else {
+    else{
+      
     let usernameDesign = document.getElementById("username") as HTMLElement;
-      usernameDesign.style.border = "1px solid red"
+      usernameDesign.style.border = "2px solid red"
       let passwordDesign = document.getElementById("password") as HTMLElement;
-      passwordDesign.style.border = "1px solid red"
-      this.usernameEmpty = true;
+      passwordDesign.style.border = "2px solid red"
+      //this.usernameEmpty = true;
+      this.isCorrectFormat = false;
     }
    
   }
