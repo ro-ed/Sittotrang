@@ -21,7 +21,7 @@
 
 .logo{
     // margin-right: 50px;
-    margin-left: 1%;
+    margin-left: 5%;
 }
 
 .list {
@@ -47,6 +47,9 @@
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        li {
+          margin-top: 1%;
+        }
     }
     .navbar label {
         display: inline-flex;
@@ -77,7 +80,8 @@ body {
     cursor: pointer;
     display: flex;
     padding: 0;
-    margin-right: 1%;
+    margin-right: 5%;
+    margin-bottom: 1%;
   }
   .line {
     fill: none;

@@ -1,24 +1,27 @@
 <app-nav></app-nav>
-<h1>Welcome to App!</h1>
-<p>Here you can:</p>
-<ul>
-    <li>Set up goals</li>
-    <li>Check them when completed</li>
-    <li>Watch your progress.</li>
-</ul>
- 
-<p>Start with setting up your first goal of the day. When completed it will be saved and you can later see progress made today.</p>
-
-<h4>{{currentDate}}</h4>
-
-<input type="text" placeholder="Enter goal name here" (onkeypress)="addGoal()">
-
-
-<div class="goals-today">
-    <p>Goals:</p>
-    <div *ngFor="let goal of goalstoday">
-
+<div class="home-card">
+    <h1>Welcome to Sittoträng!</h1>
+    <p>Here you can:</p>
+    <ul>
+        <li>Set up goals</li>
+        <li>Check them when completed</li>
+        <li>Watch your progress.</li>
+    </ul>
+     
+    <p>Start with setting up your first goal of the day. When completed it will be saved and you can later see progress made today.</p>
+    
+    <h4>{{currentDate}}</h4>
+    
+    <input type="text" placeholder="Enter goal name here" (onkeypress)="addGoal()">
+    
+    
+    <div class="goals-today">
+        <p>Goals:</p>
+        <div *ngFor="let goal of goalstoday">
+    
+        </div>
     </div>
+    
+    <p class="footer-text">Go back to login, <a routerLink="/login">Login</a></p>   
 </div>
 
-<p class="footer-text">Go back to login, <a routerLink="/login">Login</a></p>

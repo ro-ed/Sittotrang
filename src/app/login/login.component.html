@@ -16,40 +16,41 @@
 <p>Navigate to home, <a routerLink="/home">Home</a></p>
 </div> --> 
 
-
-<div class="login-card">
-  <h4>Achievo</h4>
-  <h2>Login</h2>
-  <h3>Enter your credentials</h3>
-  <form class="login-form" autocomplete="on">
-    <!-- <app-input type="text" label="Username" name="username" icon="user" id="username" [(ngModel)]="username"></app-input>
-    <app-input type="password" label="Password" name="password" icon="password" id="password" [(ngModel)]="password"></app-input> -->
-    <div class="input-fields">
-      <div class="username-input-container">
-        <div class="icon" [innerHTML]="usernameIcon"></div>
-        <div class="form-field">
-          <label [ngClass]="usernameIsFocused ? 'label-focused' : ''">Username</label>
-          <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [(ngModel)]="username" name="inputUsername" id="username" (ngModelChange)="validateEmail(username)">
-          <div class="icon-correct-format" *ngIf="!isCorrectFormat" [innerHTML]="failureIcon"></div>
-          <div class="icon-correct-format" *ngIf="isCorrectFormat" [innerHTML]="successIcon"></div>
+<div class="animated-background">
+  <div class="login-card">
+    <h4>Sittoträng</h4>
+    <h2>Login</h2>
+    <h3>Enter your credentials</h3>
+    <form class="login-form" autocomplete="on">
+      <!-- <app-input type="text" label="Username" name="username" icon="user" id="username" [(ngModel)]="username"></app-input>
+      <app-input type="password" label="Password" name="password" icon="password" id="password" [(ngModel)]="password"></app-input> -->
+      <div class="input-fields">
+        <div class="username-input-container">
+          <div class="icon" [innerHTML]="usernameIcon"></div>
+          <div class="form-field">
+            <label [ngClass]="usernameIsFocused ? 'label-focused' : ''">Username</label>
+            <input type="text" (focus)="usernameIsFocused = true" (blur)="onUsernameBlur($event)" [(ngModel)]="username" name="inputUsername" id="username" (ngModelChange)="validateEmail(username)">
+            <div class="icon-correct-format" *ngIf="!isCorrectFormat" [innerHTML]="failureIcon"></div>
+            <div class="icon-correct-format" *ngIf="isCorrectFormat" [innerHTML]="successIcon"></div>
+          </div>
+        </div>
+        <div class="password-input-container">
+          <div class="icon" [innerHTML]="passwordIcon"></div>
+          <div class="form-field">
+            <label [ngClass]="passwordIsFocused ? 'label-focused' : ''">Password</label>
+            <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [(ngModel)]="password" name="inputPassword" id="password">
+            <!-- <div class="icon" *ngIf="isWrongFormat" ></div>
+            <div class="icon" *ngIf="isCorrectFormat"></div> -->
+            
+          </div>
         </div>
       </div>
-      <div class="password-input-container">
-        <div class="icon" [innerHTML]="passwordIcon"></div>
-        <div class="form-field">
-          <label [ngClass]="passwordIsFocused ? 'label-focused' : ''">Password</label>
-          <input type="password" (focus)="passwordIsFocused = true" (blur)="onPasswordBlur($event)" [(ngModel)]="password" name="inputPassword" id="password">
-          <!-- <div class="icon" *ngIf="isWrongFormat" ></div>
-          <div class="icon" *ngIf="isCorrectFormat"></div> -->
-          
-        </div>
+      <div class="rememberCredentials">
+        <input type="checkbox" name="remeberCredentials" [(ngModel)]="rememberCredentials" class="rememberCredentialsCheckbox" (click)="hasCheckedRemeberCredentials()" id="rememberCredentialsId">
+        <label for="remeberCredentials">Remember me</label>
       </div>
-    </div>
-    <div class="rememberCredentials">
-      <input type="checkbox" name="remeberCredentials" [(ngModel)]="rememberCredentials" class="rememberCredentialsCheckbox" (click)="hasCheckedRemeberCredentials()" id="rememberCredentialsId">
-      <label for="remeberCredentials">Remember me</label>
-    </div>
-    <a href="#">Forgot your password?</a>
-    <button (click)="login($event)">LOGIN</button> 
-  </form>
+      <a href="#">Forgot your password?</a>
+      <button (click)="login($event)">LOGIN</button> 
+    </form>
+  </div>
 </div>
