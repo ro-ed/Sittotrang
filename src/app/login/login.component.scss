@@ -53,7 +53,7 @@ a, button {
 }
 
 .login-card {
-    width: 100%;
+    //width: 100%;
     padding: 70px 30px 44px;
     border-radius: 24px;
     background: #ffffff;
@@ -273,5 +273,12 @@ a, button {
     color: red;
     text-align: start;
     margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+
+.invalid-password {
+    color: red;
+    text-align: start;
+    margin-top: 0.5rem;
     margin-left: 2rem;
 }
