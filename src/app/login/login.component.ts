@@ -183,10 +183,7 @@ export class LoginComponent {
     //console.log("USRNAME", username.value)
     let password = document.getElementById('password') as HTMLInputElement;
     //console.log("PASS", password.value)
-    if (
-      username.value === 'robin@goalachiever.se' &&
-      password.value === '123'
-    ) {
+    if (username.value === 'robin@sittotrang.se' && password.value === '123') {
       if (this.rememberCredentials) {
         localStorage.setItem('username', username.value);
         localStorage.setItem('password', password.value);
