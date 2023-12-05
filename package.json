@@ -1,6 +1,6 @@
 {
-  "name": "goal-achiever-pwa",
-  "version": "0.0.0",
+  "name": "sittotrang",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

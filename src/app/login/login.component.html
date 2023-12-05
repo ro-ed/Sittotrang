@@ -17,96 +17,112 @@
 </div> -->
 
 <div class="animated-background">
-  <div class="login-card">
-    <!-- <h4>Sittoträng</h4> -->
-    <!-- <h2>Login</h2> -->
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
-      fill="currentColor"
-      class="bi bi-car-front-fill"
-      viewBox="0 0 16 16"
-    >
-      <path
-        d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"
-      />
-    </svg>
-    <h2>Sittoträng</h2>
-    <h3>Enter your credentials</h3>
-    <form class="login-form" autocomplete="on">
-      <!-- <app-input type="text" label="Username" name="username" icon="user" id="username" [(ngModel)]="username"></app-input>
-      <app-input type="password" label="Password" name="password" icon="password" id="password" [(ngModel)]="password"></app-input> -->
-      <div class="input-fields">
-        <div class="username-input-container">
-          <div class="icon" [innerHTML]="usernameIcon"></div>
-          <div class="form-field">
-            <label [ngClass]="usernameIsFocused ? 'label-focused' : ''"
-              >Username</label
-            >
-            <input
-              type="text"
-              (focus)="usernameIsFocused = true"
-              (blur)="onUsernameBlur($event)"
-              [(ngModel)]="username"
-              name="inputUsername"
-              id="username"
-              (ngModelChange)="validateEmail(username)"
-            />
-            <div
-              class="icon-correct-format"
-              *ngIf="!isCorrectUsernameFormat"
-              [innerHTML]="failureIcon"
-            ></div>
-            <div
-              class="icon-correct-format"
-              *ngIf="isCorrectUsernameFormat"
-              [innerHTML]="successIcon"
-            ></div>
-          </div>
-        </div>
-        <div class="username-wrong-format" *ngIf="!isCorrectUsernameFormat">
-          Username format is incorrect or is empty.
-        </div>
-        <div class="password-input-container">
-          <div class="icon" [innerHTML]="passwordIcon"></div>
-          <div class="form-field">
-            <label [ngClass]="passwordIsFocused ? 'label-focused' : ''"
-              >Password</label
-            >
-            <input
-              type="password"
-              (focus)="passwordIsFocused = true"
-              (blur)="onPasswordBlur($event)"
-              [(ngModel)]="password"
-              name="inputPassword"
-              id="password"
-            />
-            <div
-              class="icon-correct-format"
-              *ngIf="isWrongPassword"
-              [innerHTML]="failureIcon"
-            ></div>
-          </div>
-        </div>
-        <div class="invalid-password" *ngIf="isWrongPassword">
-          Wrong password. Try again.
-        </div>
-      </div>
-      <div class="rememberCredentials">
-        <input
-          type="checkbox"
-          name="remeberCredentials"
-          [(ngModel)]="rememberCredentials"
-          class="rememberCredentialsCheckbox"
-          (click)="hasCheckedRemeberCredentials()"
-          id="rememberCredentialsId"
+  <!-- <div id="flip-card">
+    <div class="login-card">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="currentColor"
+        class="bi bi-car-front-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"
         />
-        <label for="remeberCredentials">Remember me</label>
+      </svg>
+      <h2>Sittoträng</h2>
+      <h3>Enter your credentials</h3>
+      <form class="login-form" autocomplete="on">
+        <div class="input-fields">
+          <div class="username-input-container">
+            <div class="icon" [innerHTML]="usernameIcon"></div>
+            <div class="form-field">
+              <label [ngClass]="usernameIsFocused ? 'label-focused' : ''"
+                >Username</label
+              >
+              <input
+                type="text"
+                (focus)="usernameIsFocused = true"
+                (blur)="onUsernameBlur($event)"
+                [(ngModel)]="username"
+                name="inputUsername"
+                id="username"
+                (ngModelChange)="validateEmail(username)"
+              />
+              <div
+                class="icon-correct-format"
+                *ngIf="!isCorrectUsernameFormat"
+                [innerHTML]="failureIcon"
+              ></div>
+              <div
+                class="icon-correct-format"
+                *ngIf="isCorrectUsernameFormat"
+                [innerHTML]="successIcon"
+              ></div>
+            </div>
+          </div>
+          <div class="username-wrong-format" *ngIf="!isCorrectUsernameFormat">
+            Username format is incorrect or is empty.
+          </div>
+          <div class="password-input-container">
+            <div class="icon" [innerHTML]="passwordIcon"></div>
+            <div class="form-field">
+              <label [ngClass]="passwordIsFocused ? 'label-focused' : ''"
+                >Password</label
+              >
+              <input
+                type="password"
+                (focus)="passwordIsFocused = true"
+                (blur)="onPasswordBlur($event)"
+                [(ngModel)]="password"
+                name="inputPassword"
+                id="password"
+              />
+              <div
+                class="icon-correct-format"
+                *ngIf="isWrongPassword"
+                [innerHTML]="failureIcon"
+              ></div>
+            </div>
+          </div>
+          <div class="invalid-password" *ngIf="isWrongPassword">
+            Wrong password. Try again.
+          </div>
+        </div>
+        <div class="rememberCredentials">
+          <input
+            type="checkbox"
+            name="remeberCredentials"
+            [(ngModel)]="rememberCredentials"
+            class="rememberCredentialsCheckbox"
+            (click)="hasCheckedRemeberCredentials()"
+            id="rememberCredentialsId"
+          />
+          <label for="remeberCredentials">Remember me</label>
+        </div>
+        <a href="#">Forgot your password?</a>
+        <button id="flip-card-btn-turn-to-back">
+          No account? Make one here!
+        </button>
+
+        <button (click)="login($event)">LOGIN</button>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="card-container">
+    <div class="card" id="card">
+      <div class="card-face login-card">
+        <h2>Login</h2>
+        <!-- Your login form goes here -->
+        <button (click)="flipCard()">Switch to Signup</button>
       </div>
-      <a href="#">Forgot your password?</a>
-      <a href="/signup">No account? Make one here!</a>
-      <button (click)="login($event)">LOGIN</button>
-    </form>
+      <div class="card-face signup-card">
+        <h2>Signup</h2>
+        <!-- Your signup form goes here -->
+        <button (click)="flipCard()">Go back to Login</button>
+      </div>
+    </div>
   </div>
 </div>

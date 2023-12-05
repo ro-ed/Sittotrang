@@ -239,4 +239,28 @@ export class LoginComponent {
       this.successIcon[serial].style.opacity = '1';
     }
   }
+
+  flipCard() {
+    const card = document.getElementById('card') as HTMLElement;
+    card.classList.toggle('flip');
+
+    const loginCard = document.querySelector('.login-card') as HTMLElement;
+    const signupCard = document.querySelector('.signup-card') as HTMLElement;
+
+    if (card.classList.contains('flip')) {
+      setTimeout(() => {
+        loginCard.style.visibility = 'hidden';
+        loginCard.style.opacity = '0';
+        signupCard.style.visibility = 'visible';
+        signupCard.style.opacity = '1';
+      }, 250); // Adjust the timeout based on your transition duration
+    } else {
+      setTimeout(() => {
+        loginCard.style.visibility = 'visible';
+        loginCard.style.opacity = '1';
+        signupCard.style.visibility = 'hidden';
+        signupCard.style.opacity = '0';
+      }, 250); // Adjust the timeout based on your transition duration
+    }
+  }
 }
