@@ -95,6 +95,7 @@ button {
   background: #fbae3c;
   color: black;
   font-weight: 600;
+  font-size: 15px;
 }
 
 .login-form > button:hover {
@@ -279,4 +280,27 @@ button {
 
 .signup-card {
   background: #ffffff;
+}
+
+.do-not-have-account {
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: #fbae3c;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.forgot-password {
+  display: flex;
+  justify-content: space-between;
+  a {
+    color: #fbae3c;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
